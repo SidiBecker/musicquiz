@@ -29,6 +29,7 @@ export default function Home() {
         <meta property="og:title" content="MusicQuiz by SidiBecker" />
         <meta property="og:image" content={db.bg} />
         <meta property="og:url" content="https://musicquiz.sidibecker.vercel.app" />
+        <title>MusicQuiz</title>
       </Head>
 
       <QuizBackground backgroundImage={db.bg}>
