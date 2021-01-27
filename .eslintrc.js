@@ -22,5 +22,6 @@ module.exports = {
     'react/prop-types': [0, { ignore: true }],
     'react/jsx-props-no-spreading': 0,
     'no-alert': 0,
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
   },
 };
