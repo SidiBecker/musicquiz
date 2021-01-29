@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import AlternativesForm from '../AlternativesForm';
 import Button from '../Button';
 import Widget from '../Widget';
 
@@ -9,6 +10,10 @@ const QuestionWidget = ({
   onSubmit,
 }) => {
   const questionId = `question__${questionIndex}`;
+  const [selected, setSelected] = useState(undefined);
+  const [isQuestonSubmited, setIsQuestionSubmited] = useState(false);
+  const [hasValue, setHasValue] = useState(false);
+  const isCorrect = selected === question.answer;
   return (
     <Widget>
       <Widget.Header>
@@ -35,24 +40,43 @@ const QuestionWidget = ({
           {question.description}
         </p>
 
-        <form
+        <AlternativesForm
           onSubmit={(infosDoEvento) => {
             infosDoEvento.preventDefault();
-            onSubmit();
+            setIsQuestionSubmited(true);
+
+            setTimeout(() => {
+              setIsQuestionSubmited(false);
+              setHasValue(false);
+              setSelected(undefined);
+              onSubmit(isCorrect);
+            }, 2000);
           }}
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
+            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+            const isSelected = selected === alternativeIndex;
             return (
               <Widget.Topic
                 as="label"
                 htmlFor={alternativeId}
                 key={alternativeId}
+                data-selected={isSelected}
+                data-status={isQuestonSubmited && alternativeStatus}
               >
                 <input
-                  // style={{ display: 'none' }}
                   id={alternativeId}
                   name={questionId}
+                  readOnly={isQuestonSubmited}
+                  onChange={(ev) => {
+                    if (!isQuestonSubmited) {
+                      setSelected(alternativeIndex);
+                      setHasValue(true);
+                    } else {
+                      ev.preventDefault();
+                    }
+                  }}
                   type="radio"
                 />
                 {alternative}
@@ -60,13 +84,13 @@ const QuestionWidget = ({
             );
           })}
 
-          {/* <pre>
-            {JSON.stringify(question, null, 4)}
-          </pre> */}
-          <Button type="submit">
+          <Button type="submit" disabled={!hasValue || isQuestonSubmited}>
             Confirmar
           </Button>
-        </form>
+
+          {isQuestonSubmited && isCorrect && <p>Você Acertou!</p>}
+          {isQuestonSubmited && !isCorrect && <p>Você Errou!</p>}
+        </AlternativesForm>
       </Widget.Content>
     </Widget>
   );

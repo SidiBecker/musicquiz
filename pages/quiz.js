@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import db from '../db.json';
 import QuizLogo from '../components/QuizLogo';
 import QuizBackground from '../components/QuizBackground';
 import QuizContainer from '../components/QuizContainer';
 import QuestionWidget from '../components/QuestionWidget';
 import LoadingWidget from '../components/LoadingWidget';
+import ResultWidget from '../components/ResultWidget';
 
 const screenStates = {
   QUIZ: 'QUIZ',
@@ -14,19 +15,22 @@ const screenStates = {
 };
 
 export default function QuizPage() {
-  const [screenState, setScreenState] = React.useState(screenStates.LOADING);
+  const [screenState, setScreenState] = useState(screenStates.LOADING);
+  const [results, setResults] = useState([]);
   const totalQuestions = db.questions.length;
-  const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const questionIndex = currentQuestion;
   const question = db.questions[questionIndex];
 
-  React.useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       setScreenState(screenStates.QUIZ);
     }, 1 * 1000);
   }, []);
 
-  function handleSubmitQuiz() {
+  function handleSubmitQuiz(isCorrect) {
+    setResults([...results, isCorrect]);
+
     const nextQuestion = questionIndex + 1;
     if (nextQuestion < totalQuestions) {
       setCurrentQuestion(nextQuestion);
@@ -51,7 +55,11 @@ export default function QuizPage() {
 
         {screenState === screenStates.LOADING && <LoadingWidget />}
 
-        {screenState === screenStates.RESULT && <div>Você acertou X questões, parabéns!</div>}
+        {
+          screenState === screenStates.RESULT && (
+            <ResultWidget results={results} />
+          )
+        }
       </QuizContainer>
     </QuizBackground>
   );

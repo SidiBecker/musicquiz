@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const InputBase = styled.input`
-  width: 100%;
+  width: 88%;
   padding: 15px;
   font-size: 14px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -20,7 +20,6 @@ export default function Input({ onChange, placeholder, ...props }) {
       <InputBase
         placeholder={placeholder}
         onChange={onChange}
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       />
     </div>

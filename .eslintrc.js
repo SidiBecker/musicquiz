@@ -23,5 +23,6 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     'no-alert': 0,
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+    'react/jsx-one-expression-per-line': 0,
   },
 };

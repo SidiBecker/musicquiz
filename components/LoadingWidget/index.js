@@ -9,7 +9,7 @@ export default function LoadingWidget() {
       </Widget.Header>
 
       <Widget.Content>
-        [Desafio do Loading]
+        Carregando o conteúdo...
       </Widget.Content>
     </Widget>
   );

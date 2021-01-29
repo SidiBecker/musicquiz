@@ -61,9 +61,9 @@ export default function Home() {
               Quizzes da galera!
             </Widget.Header>
             <Widget.Content>
-              <LabelQuiz href="#"><p>Quiz Star Wars</p></LabelQuiz>
-              <LabelQuiz href="#"><p>Quiz Disney</p></LabelQuiz>
-              <LabelQuiz href="#"><p>Quiz Carros</p></LabelQuiz>
+              {db.external.map((quiz) => (
+                <LabelQuiz href={quiz}><p>{quiz}</p></LabelQuiz>
+              ))}
             </Widget.Content>
           </Widget>
           <Footer />
