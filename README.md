@@ -1,5 +1,5 @@
 <h1 align="center">
-    Coverflix
+    MusicQuiz
 </h1>
 
 <p align="center">
