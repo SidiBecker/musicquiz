@@ -13,7 +13,7 @@
 
 O [MusicQuiz](http://musicquiz.sidibecker.vercel.app) é uma plataforma de quiz sobre curiosidades da música e outros quizzes linkados.
 
-O projeto foi desenvolvido em paralelo a Imersão Next.js da [Alura](https://www.alura.com.br/).
+O projeto foi desenvolvido em paralelo a Imersão React Next.js da [Alura](https://www.alura.com.br/).
 
 ### 🚀 Features e Tecnologias
 
