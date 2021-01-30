@@ -50,7 +50,7 @@ export default function Footer(props) {
         a
         {' '}
         <a href="https://www.alura.com.br/">
-          <span>Imersão React da Alura</span>
+          <span>Imersão React Next.js da Alura</span>
         </a>
       </p>
     </FooterWrapper>

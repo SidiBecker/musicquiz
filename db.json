@@ -21,6 +21,32 @@
         "Eddie Van Halen",
         "Eric Clapton"
       ]
+    },
+    {
+      "image": "https://media.subrayado.com.uy/adjuntos/230/imagenes/001/064/0001064718.jpg",
+      "title": "Qual foi a primeira banda a fazer shows em todos os continentes?",
+      "description": "Em 2013, a banda se apresentou na Antártida e tornou-se a primeira do mundo a fazer shows em todos os continentes.",
+      "answer": 0,
+      "alternatives": [
+        "Metallica",
+        "Rush",
+        "Iron Maiden",
+        "Red Hot Chilli Peppers"
+      ]
+    },
+    {
+      "image": "https://static.todamateria.com.br/upload/hi/st/historiadamusica-cke.jpg",
+      "title": "Qual é o instrumento musical mais antigo já encontrado?",
+      "description": "Foram descobertos desenhos desses objetos em pinturas das cavernas, há cerca de 60 mil anos.",
+      "answer": 0,
+      "alternatives": ["Flauta", "Apito", "Harpa", "Tambor"]
+    },
+    {
+      "image": "https://cdn.panrotas.com.br/portal-panrotas-statics/media-files-cache/278262/9d77df3894c683cc38cad64f4600f977aviacao1/0,0,670,400/670,400,0.68/0/default.jpg",
+      "title": "Integrantes de qual banda tinham o costume de viajarem separados?",
+      "description": "A justificativa dos músicos era que, caso um deles sofresse um acidente, a banda seguiria em atividade com os que permanecessem vivos.",
+      "answer": 1,
+      "alternatives": ["Rolling Stones", "Queen", "Led Zeppelin", "AC/DC"]
     }
   ],
   "external": [
