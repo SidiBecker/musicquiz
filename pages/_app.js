@@ -23,6 +23,12 @@ const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     box-sizing: border-box;
   }
+  li {
+    list-style: none;
+  }
+  input[type="radio"] {
+    display: none;
+  }
 `;
 
 const { theme } = db;

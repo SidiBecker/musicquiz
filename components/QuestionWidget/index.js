@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import AlternativesForm from '../AlternativesForm';
+import BackLinkArrow from '../BackLinkArrow';
 import Button from '../Button';
 import Widget from '../Widget';
 
@@ -15,9 +17,18 @@ const QuestionWidget = ({
   const [hasValue, setHasValue] = useState(false);
   const isCorrect = selected === question.answer;
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay: 0, duration: 0.2 }}
+      variants={{
+        show: { opacity: 1 },
+        hidden: { opacity: 0 },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
-        {/* <BackLinkArrow href="/" /> */}
+        <BackLinkArrow href="/" />
         <h3>
           {`Pergunta ${questionIndex + 1} de ${totalQuestions}`}
         </h3>
@@ -55,8 +66,14 @@ const QuestionWidget = ({
         >
           {question.alternatives.map((alternative, alternativeIndex) => {
             const alternativeId = `alternative__${alternativeIndex}`;
-            const alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
-            const isSelected = selected === alternativeIndex;
+            let alternativeStatus = isCorrect ? 'SUCCESS' : 'ERROR';
+            let isSelected = selected === alternativeIndex;
+
+            if (isQuestonSubmited) {
+              isSelected = isSelected || alternativeIndex === question.answer;
+              alternativeStatus = alternativeIndex === question.answer ? 'SUCCESS' : 'ERROR';
+            }
+
             return (
               <Widget.Topic
                 as="label"
@@ -88,8 +105,8 @@ const QuestionWidget = ({
             Confirmar
           </Button>
 
-          {isQuestonSubmited && isCorrect && <p>Você Acertou!</p>}
-          {isQuestonSubmited && !isCorrect && <p>Você Errou!</p>}
+          {isQuestonSubmited && isCorrect && <p>Você Acertou! :D</p>}
+          {isQuestonSubmited && !isCorrect && <p>Você Errou! :(</p>}
         </AlternativesForm>
       </Widget.Content>
     </Widget>

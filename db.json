@@ -4,26 +4,29 @@
   "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
   "questions": [
     {
-      "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
-      "title": "Como fazer um seletor por id via CSS?",
-      "description": "Essa é pra aquecer",
+      "image": "https://images.squarespace-cdn.com/content/v1/517e9335e4b0847823500845/1428183114472-JPRSR3T8D0P55XTC0ANW/ke17ZwdGBToddI8pDm48kOC11rMtl7i1spEQWbfKRPVZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpzvWImfAEOs2BFvvHUo1VB_0ROQF_hHngw8L3XhS6iZI2RDMeX5bOIii-KVZ2AeKFE/rod_stewart_copacabana_concierto_mc3a1s_grande_blog_curioso_impertinente.jpg",
+      "title": "Qual foi o maior público de todos os tempos em um show gratuito?",
+      "description": "A celebração da chegada do Ano Novo em 1994 no Rio de Janeiro, na Praia de Copacabana, ocorreu com a apresentação de Rod Stewart e com um público animado, que cantou todas as músicas.",
       "answer": 2,
-      "alternatives": [".elemento", "*elemento", "#elemento", "%elemento"]
+      "alternatives": ["850 mil", "1.7 milhão", "3.5 milhões", "4 milhões"]
     },
     {
-      "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-      "title": "Como fazer um background gradiente com css?",
-      "description": "Faz tempo em haha",
-      "answer": 0,
+      "image": "https://rollingstone.uol.com.br/media/_versions/legacy/2011/img_24004_guitarras-eric-clapton_widelg.jpg",
+      "title": "Que guitarrista teve sua guitarra leiloada pelo maior valor?",
+      "description": "A guitarra foi vendida por US$ 959.500 em um leilão organizado em 2004 em favor do centro de reabilitação para dependentes de drogas e álcool Crossroads.",
+      "answer": 3,
       "alternatives": [
-        "background: linear-gradient(#e66465, #9198e5);",
-        "background: gradient(#e66465, #9198e5);"
+        "Jimi Hendrix",
+        "Jimmy Page",
+        "Eddie Van Halen",
+        "Eric Clapton"
       ]
     }
   ],
   "external": [
-    "https://aluraquiz-css.omariosouto.vercel.app",
-    "https://aluraquiz-marvel.omariosouto.vercel.app"
+    "https://pinkfloyd-quiz.denismend.vercel.app",
+    "https://1sec-quiz.victoroda.vercel.app",
+    "https://harry-potter-quiz.brunogerbasi.vercel.app"
   ],
   "theme": {
     "colors": {

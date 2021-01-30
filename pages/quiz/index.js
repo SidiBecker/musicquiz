@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import db from '../db.json';
-import QuizLogo from '../components/QuizLogo';
-import QuizBackground from '../components/QuizBackground';
-import QuizContainer from '../components/QuizContainer';
-import QuestionWidget from '../components/QuestionWidget';
-import LoadingWidget from '../components/LoadingWidget';
-import ResultWidget from '../components/ResultWidget';
+import { useRouter } from 'next/router';
+import db from '../../db.json';
+import QuizLogo from '../../components/QuizLogo';
+import QuizBackground from '../../components/QuizBackground';
+import QuizContainer from '../../components/QuizContainer';
+import QuestionWidget from '../../components/QuestionWidget';
+import LoadingWidget from '../../components/LoadingWidget';
+import ResultWidget from '../../components/ResultWidget';
 
 const screenStates = {
   QUIZ: 'QUIZ',
@@ -14,13 +15,19 @@ const screenStates = {
   RESULT: 'RESULT',
 };
 
-export default function QuizPage() {
+export default function QuizPage({ externalQuestions, externalBg }) {
+  const questions = externalQuestions || db.questions;
+  const background = externalBg || db.bg;
+  const totalQuestions = questions.length;
+
+  const router = useRouter();
+  const name = router.query.name || 'Convidado';
   const [screenState, setScreenState] = useState(screenStates.LOADING);
   const [results, setResults] = useState([]);
-  const totalQuestions = db.questions.length;
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
   const questionIndex = currentQuestion;
-  const question = db.questions[questionIndex];
+  const question = questions[questionIndex];
 
   useEffect(() => {
     setTimeout(() => {
@@ -40,7 +47,7 @@ export default function QuizPage() {
   }
 
   return (
-    <QuizBackground backgroundImage={db.bg}>
+    <QuizBackground backgroundImage={background}>
       <QuizContainer>
         <QuizLogo />
         {screenState === screenStates.QUIZ && (
@@ -57,7 +64,9 @@ export default function QuizPage() {
 
         {
           screenState === screenStates.RESULT && (
-            <ResultWidget results={results} />
+            <>
+              <ResultWidget results={results} name={name} />
+            </>
           )
         }
       </QuizContainer>

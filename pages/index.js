@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 import db from '../db.json';
 import Widget from '../components/Widget';
 import GitHubCorner from '../components/GitHubCorner';
@@ -11,10 +11,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import QuizContainer from '../components/QuizContainer';
 import QuizLogo from '../components/QuizLogo';
-
-const LabelQuiz = styled.a`
-color: white;
-`;
+import QuizzesExternos from '../components/QuizzesExternos';
 
 export default function Home() {
   const router = useRouter();
@@ -43,7 +40,16 @@ export default function Home() {
         <GitHubCorner projectUrl="https://github.com/SidiBecker" />
         <QuizContainer>
           <QuizLogo />
-          <Widget>
+          <Widget
+            as={motion.section}
+            transition={{ delay: 0, duration: 0.5 }}
+            variants={{
+              show: { opacity: 1 },
+              hidden: { opacity: 0 },
+            }}
+            initial="hidden"
+            animate="show"
+          >
             <Widget.Header>
               {db.title}
             </Widget.Header>
@@ -56,16 +62,7 @@ export default function Home() {
               </form>
             </Widget.Content>
           </Widget>
-          <Widget>
-            <Widget.Header>
-              Quizzes da galera!
-            </Widget.Header>
-            <Widget.Content>
-              {db.external.map((quiz) => (
-                <LabelQuiz href={quiz}><p>{quiz}</p></LabelQuiz>
-              ))}
-            </Widget.Content>
-          </Widget>
+          <QuizzesExternos />
           <Footer />
         </QuizContainer>
       </QuizBackground>
