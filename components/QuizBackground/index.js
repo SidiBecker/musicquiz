@@ -16,7 +16,6 @@ const QuizBackground = styled.div`
       background-image:
         linear-gradient(transparent, ${({ theme }) => theme.colors.mainBg}),
         url(${({ backgroundImage }) => backgroundImage});
-      display: block;
       width: 100%;
       height: 210px;
       position: absolute;
