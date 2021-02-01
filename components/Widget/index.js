@@ -22,6 +22,7 @@ const Widget = styled.section`
 `;
 
 Widget.Header = styled.header`
+  color: ${({ theme }) => theme.colors.contrastText};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -35,6 +36,7 @@ Widget.Header = styled.header`
 
 Widget.Content = styled.div`
   padding: 24px 32px 32px 32px;
+  color: ${({ theme }) => theme.colors.contrastText};
   & > *:first-child {
     margin-top: 0;
   }

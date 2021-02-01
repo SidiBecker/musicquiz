@@ -12,6 +12,9 @@ const StyledLink = styled(Link)`
 
 const SVG = styled.svg`
   vertical-align: middle;
+  path {
+    fill: ${({ theme }) => theme.colors.contrastText};
+  }
 `;
 
 export default function BackLinkArrow({ href }) {
